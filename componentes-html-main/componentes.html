@@ -273,26 +273,18 @@
 
     const btn3 = document.getElementById("btn3");
 btn3.addEventListener("click", () => {
-  // Identifica o formulário na coluna 1 e o container da coluna 3
   const form1 = document.getElementById("form1");
   const form3 = document.getElementById("form3");
 
-  // Remove os elementos existentes no formulário da coluna 3
   form3.innerHTML = "";
-
-  // Clona e adiciona todos os controles do formulário da coluna 1 no formulário da coluna 3 (sem os valores)
   form1.childNodes.forEach((node) => {
     const clonedNode = node.cloneNode(true);
-
-    // Limpa os valores dos controles clonados
     if (clonedNode.tagName === "INPUT" || clonedNode.tagName === "TEXTAREA") {
       clonedNode.value = "";
     }
 
     form3.appendChild(clonedNode);
   });
-
-  // Adiciona "CRIADO ->" ao lado de cada título na coluna 3
   form3.querySelectorAll("h1, label, legend").forEach((title) => {
     const createdLabel = document.createElement("span");
     createdLabel.textContent = " CRIADO -> ";
